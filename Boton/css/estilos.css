@@ -1,0 +1,42 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+/* selector universal para que no coja margenes de los navegadores por defecto */
+
+body {
+    padding: 20px;
+}
+
+p {
+    color:red;
+}
+
+#especificado {
+    color:green;
+}
+
+.parrafo {
+    color:blueviolet;
+}
+
+button{
+    background-color: rgb(117, 117, 245);
+    padding: 10px 15px;
+/* arriba y abajo 10px, izquierda y derecha 15px, va como las agujas del reloj */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 5px;
+    text-transform: uppercase;
+    box-shadow: -5px 8px 3px 5px rgba(57,148,209,0.51);
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: rgba(99, 99, 216, 0.521);
+    scale: 0.9;
+}
