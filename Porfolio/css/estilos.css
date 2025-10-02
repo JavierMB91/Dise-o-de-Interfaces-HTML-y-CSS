@@ -103,12 +103,41 @@ h2 {
 
 .sobre-mi {
     display: flex;
+    align-items: center;
+    gap: 2%;
 }
 
 .sobre-mi-texto {
     width: 50%;
+    line-height: 1.6;
 }
 
 .sobre-mi-imagen {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #687AE5 0%, #754FA8 100%);
+    font-size: 4rem;
+    border-radius: 20px;
+    height: 400px;
+}
+
+.skills {
+    background: #e5e3e3;
+}
+
+.skills-container {
+    display: flex;
+    gap: 2%;
+}
+
+.skills-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.skills-card h3 {
+    color: #687AE5;
 }
