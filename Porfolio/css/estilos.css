@@ -3,6 +3,7 @@
     --color-primary: #687AE5;
     --color-secondary: #754FA8;
     --shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    --shadow2: 0px 10px 20px rgba(0,0,0,0.2);
     --gradiente: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 }
 
@@ -114,7 +115,7 @@ nav a:hover{
 
 .boton:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow2);
 }
 
 @media (max-width: 768px) {
@@ -181,7 +182,7 @@ h2 {
     }
 }
 
-.skills {
+.skills, .contacto {
     background: #e5e3e3;
 }
 
@@ -202,8 +203,17 @@ h2 {
     justify-content: space-between;
 }
 
+.skills-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow2);
+}
+
 .skills-card h3 {
     color: var(--color-primary);
+}
+
+.skills-container > * {
+    width: 100%;
 }
 
 .skills-bar {
@@ -249,4 +259,46 @@ h2 {
     align-items: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    height: 200px;
+}
+
+.project-content {
+    padding: 1.2rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
+
+.project-tags span {
+    background-color: rgb(216, 216, 225);
+    padding: 0.5rem;
+    border-radius: 15px;
+    color: var(--color-primary);
+}
+
+/* contacto */
+
+.contacto {
+    text-align: center;
+}
+
+.contactos {
+    margin-top: 1rem;
+}
+
+.contactos a{
+    background: var(--gradiente);
+    color: white;
+    margin:0 0.5rem
+}
+
+/* Footer */
+
+footer {
+    background: var(--color-secondary);
+    color: white;
+    text-align: center;
+    padding: 2rem;
 }
