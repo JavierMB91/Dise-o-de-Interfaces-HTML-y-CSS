@@ -1,4 +1,3 @@
-
 :root {
     --color-primary: #687AE5;
     --color-secondary: #754FA8;
@@ -181,6 +180,23 @@ h2 {
         width: 95%;
     }
 }
+
+/* --- INICIO: NUEVOS ESTILOS AÑADIDOS --- */
+/* 
+   Estos estilos añaden el espaciado solicitado entre los párrafos y las listas 
+   DENTRO de la sección "sobre-mi", sin afectar a otras partes de la web.
+*/
+.sobre-mi-texto h3 {
+    margin-top: 40px; /* Añade espacio por encima del subtítulo */
+}
+
+.sobre-mi-texto ul {
+    margin-bottom: 40px; /* Añade espacio por debajo de la lista */
+    list-style: disc; /* Muestra los puntos de la lista */
+    padding-left: 2rem; /* Añade sangría para que los puntos no se solapen con el texto */
+}
+/* --- FIN: NUEVOS ESTILOS AÑADIDOS --- */
+
 
 .skills, .contacto {
     background: #e5e3e3;
