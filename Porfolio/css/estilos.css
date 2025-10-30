@@ -202,12 +202,29 @@ nav {
     padding: 1rem;
     overflow-y: auto;
     background: var(--vscode-bg);
-}
-.vscode-code pre {
-    margin: 0;
-    color: var(--text-color);
+    font-family: var(--font-mono);
     font-size: 0.9rem;
     line-height: 1.7;
+    color: var(--text-color);
+}
+
+.code-line {
+    display: flex;
+    align-items: flex-start; /* Alinea los números con la parte superior de la línea de código */
+}
+
+.line-number {
+    width: 30px; /* Ancho fijo para alinear los números */
+    text-align: right;
+    padding-right: 10px;
+    color: var(--text-color-muted);
+    user-select: none; /* Evita que se puedan seleccionar los números */
+    flex-shrink: 0; /* Evita que el número se encoja */
+}
+
+.code-content {
+    flex-grow: 1; /* Ocupa el resto del espacio disponible */
+    white-space: pre; /* Mantiene los espacios y sangrados */
 }
 /* Colores de sintaxis tipo VS Code */
 .code-comment { color: #6a9955; }
@@ -458,7 +475,9 @@ footer {
 }
 
 /* --- Media Queries para Responsividad --- */
+/* --- Media Queries para Responsividad (Solución Final y Completa) --- */
 @media (max-width: 768px) {
+    /* --- Navegación Móvil (sin cambios) --- */
     .menu-toggle { display: flex; }
     .nav-menu {
         position: fixed;
@@ -474,21 +493,76 @@ footer {
     }
     .nav-menu.active { left: 0; }
 
+    /* --- Ajustes de la Sección Hero para móvil --- */
+    .hero {
+        padding: 0 1rem;
+    }
     .hero-content {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
     .hero-text {
-        text-align: center;
         max-width: 100%;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
     .hero-visual {
         width: 100%;
-    }
-    .vscode-editor {
-        height: 350px;
+        display: flex;
+        justify-content: center;
     }
 
+    /* --- ADAPTACIÓN DEFINITIVA DEL EDITOR VS CODE --- */
+    .vscode-editor {
+        width: 95vw;
+        max-width: 500px;
+        height: 400px; /* <-- CAMBIO CLAVE: Aumentamos la altura para que quepa todo el código */
+        overflow: hidden; /* Mantiene la seguridad contra desbordamientos */
+    }
+
+    /* --- AJUSTES FINOS EN LA BARRA LATERAL --- */
+    .vscode-sidebar {
+        width: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0.5rem;
+    }
+
+    .sidebar-icon {
+        font-size: 1rem;
+        padding: 8px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .vscode-code {
+        overflow-y: hidden; /* <-- CAMBIO CLAVE: Forzamos a que no aparezca scroll vertical */
+        font-size: 0.75rem;
+    }
+
+    .code-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    /* --- AJUSTES FINOS EN LA BARRA DE ESTADO --- */
+    .vscode-statusbar {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .vscode-statusbar span {
+        margin-right: 0.5rem;
+        white-space: nowrap;
+    }
+    /* --- FIN DE LA ADAPTACIÓN DEL EDITOR --- */
+
+    /* --- Resto de secciones (sin cambios) --- */
     .about-container { flex-direction: column; text-align: center; }
     .skills-grid { flex-direction: column; align-items: center; }
     .skill-card { max-width: 100%; }
