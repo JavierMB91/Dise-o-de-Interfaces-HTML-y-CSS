@@ -73,23 +73,46 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', showSkillBars);
     showSkillBars();
 
-    // --- 5. NAVEGACIÓN SUAVE Y FIABLE (CORREGIDA) ---
+    // --- 5. NAVEGACIÓN SUAVE Y EFECTO 3D EN TARJETAS ---
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Navegación suave (sin cambios)
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevenir el salto instantáneo del anchor
-            
+            e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-
             if (targetSection) {
-                // Usamos scrollIntoView para un scroll suave y fiable.
-                // El CSS (scroll-margin-top) se encargará del offset del header.
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-});
+
+    // Efecto 3D Tilt en tarjetas
+    const cards = document.querySelectorAll('.skill-card, .project-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            // Obtenemos las dimensiones y posición de la tarjeta
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // Posición X del ratón dentro de la tarjeta
+            const y = e.clientY - rect.top; // Posición Y del ratón dentro de la tarjeta
+
+            // Calculamos el centro de la tarjeta
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calculamos la rotación (máximo 15 grados)
+            const rotateX = (y - centerY) / 10; // Invierte Y para un efecto natural
+            const rotateY = (centerX - x) / 10;
+
+            // Aplicamos la transformación 3D
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        // Restablecemos la tarjeta cuando el ratón sale
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+  });

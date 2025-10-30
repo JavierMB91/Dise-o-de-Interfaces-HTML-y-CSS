@@ -383,3 +383,12 @@ footer {
         gap: 2rem;
     }
 }
+
+/* --- Añadir esto al final de tu archivo CSS --- */
+
+/* Contenedor para el efecto 3D */
+.tilt-card {
+    /* Esta propiedad es clave para el efecto de perspectiva */
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+}
