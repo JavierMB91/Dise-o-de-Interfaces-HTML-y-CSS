@@ -4,160 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Javier Morilla Barrena - Desarrollador Web Full Stack">
-    <meta name="keywords" content="desarrollador web, full stack, portfolio, javascript, react, node.js">
     <meta name="author" content="Javier Morilla Barrena">
-    <title>Javier Morilla Barrena - Desarrollador Web Full Stack</title>
+    <title>Javier Morilla Barrena - Desarrollador Web</title>
+    
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <nav>
-            <div class="logo">{ Dev FullStack }</div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <div class="logo">&lt;JMB/&gt;</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-    <div class="hero-content">
-        <h1>Javier Morilla Barrena</h1>
-        <p>Desarrollador Web Full Stack apasionado por crear experiencias digitales innovadoras</p>
-        <a href="#contacto" class="boton">Contactar</a>
-    </div>
-    </section>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1><span class="typing-text"></span></h1>
+                <p>Desarrollador Web Full Stack creando experiencias digitales modernas.</p>
+            </div>
+        </section>
 
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <div class="sobre-mi">
-            <div class="sobre-mi-texto">
-                <p>Soy Javier Morilla Barrena, estudiante del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web (DAW), con finalización prevista en junio de 2026.</p>
-                
-                <h3>🧠 Objetivos y Actitud</h3>
-                <ul>
-                    <li>Apasionado por el aprendizaje constante y la mejora continua</li>
-                    <li>Buscando crecer profesionalmente y colaborar en proyectos innovadores</li>
-                    <li>Comprometido con la calidad y las mejores prácticas de desarrollo</li>
-                </ul>
-
-                <p>Me apasiona la tecnología y el desarrollo de software. Estoy motivado por el aprendizaje constante y en búsqueda de oportunidades en el sector IT para crecer como profesional y aportar valor en proyectos reales.</p>
-            </div>
-            <div class="sobre-mi-imagen">
-                🖥️
-            </div>
-        </div>
-    </section>
-
-    <section id="habilidades" class="skills">
-        <h2>Habilidades Técnicas</h2>
-        <div class="skills-container">
-            <div class="skills-card">
-                <h3>HTML & CSS</h3>
-                <p>Desarrollo de interfaces responsivas y modernas con semántica HTML5 y CSS3 avanzado</p>
-                <div class="skills-bar">
-                    <div class="skills-progress noventa"></div>
+        <section id="sobre-mi" class="section-content reveal">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Soy <strong>Javier Morilla Barrena</strong>, estudiante de DAW con pasión por el desarrollo web y la creación de soluciones digitales elegantes y funcionales.</p>
+                    <p>Busco un entorno donde pueda crecer, compartir conocimientos y contribuir a proyectos que marquen la diferencia.</p>
                 </div>
-            </div>
-            <div class="skills-card">
-                <h3>JavaScript</h3>
-                <p>Programación interactiva y dinámica con ES6+, manipulación del DOM y asíncronía</p>
-                <div class="skills-bar">
-                    <div class="skills-progress ochenta"></div>
-                </div>
-            </div>
-            <div class="skills-card">
-                <h3>React</h3>
-                <p>Desarrollo de aplicaciones web modernas con componentes, hooks y estado global</p>
-                <div class="skills-bar">
-                    <div class="skills-progress sesenta"></div>
-                </div>
-            </div>
-            <div class="skills-card">
-                <h3>Node.js</h3>
-                <p>Desarrollo de APIs RESTful y backend con Express, bases de datos y autenticación</p>
-                <div class="skills-bar">
-                    <div class="skills-progress noventaycinco"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <h2>Proyectos Destacados</h2>
-        <div class="skills-container">
-            <div class="skills-card">
-                <div class="project-image project-card">
-                    🛒
-                </div>
-                <div class="project-content">
-                    <h3>Plataforma E-Commerce</h3>
-                    <p>Plataforma de comercio electrónico completa con carrito de compras, gestión de inventario y pasarela de pago integrada</p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
-                        <span>Stripe API</span>
+                <div class="about-image">
+                    <div class="tech-icons">
+                        <i class="fab fa-html5"></i>
+                        <i class="fab fa-css3-alt"></i>
+                        <i class="fab fa-js-square"></i>
+                        <i class="fab fa-react"></i>
                     </div>
                 </div>
             </div>
-            <div class="skills-card">
-                <div class="project-image project-card">
-                    📇
-                </div>
-                <div class="project-content">
-                    <h3>App de Gestión de Tareas</h3>
-                    <p>Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real, notificaciones y dashboard analítico</p>
-                    <div class="project-tags">
-                        <span>Vue.js</span>
-                        <span>Firebase</span>
-                        <span>CSS Grid</span>
-                        <span>PWA</span>
-                    </div>
-                </div>
-            </div>
-            <div class="skills-card">
-                <div class="project-image project-card">
-                    🎨
-                </div>
-                <div class="project-content">
-                    <h3>Portfolio Creativo</h3>
-                    <p>Sitio web portfolio con animaciones avanzadas, diseño interactivo y optimización para motores de búsqueda</p>
-                    <div class="project-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>GSAP</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contacto" class="contacto">
-        <h2>Contacto</h2>
-        <p>¿Tienes un proyecto en mente o estás buscando colaborar? ¡Me encantaría escucharte!</p>
-        <div class="contactos">
-            <a class="boton" href="mailto:contacto@ejemplo.com">
-                <span>📧</span> Email
-            </a>
-            <a class="boton" href="https://github.com/JavierMB91" target="_blank" rel="noopener noreferrer">
-                <span>💻</span> Github
-            </a>
-            <a class="boton" href="https://www.linkedin.com/in/jmorilla/" target="_blank" rel="noopener noreferrer">
-                <span>💼</span> LinkedIn
-            </a>
-        </div>
-    </section>
+        <section id="habilidades" class="section-content reveal">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3>HTML & CSS</h3>
+                    <p>Interfaces limpias, modernas y responsivas.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-skill="90"></div>
+                    </div>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <h3>JavaScript</h3>
+                    <p>Lógica de interacción y asincronía moderna.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-skill="80"></div>
+                    </div>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-php skill-icon"></i>
+                    <h3>PHP</h3>
+                    <p>Desarrollo backend y conexión con bases de datos.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-skill="60"></div>
+                    </div>
+                    <span class="skill-percentage">60%</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>MySQL</h3>
+                    <p>Consultas optimizadas y diseño relacional.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-skill="95"></div>
+                    </div>
+                    <span class="skill-percentage">95%</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="section-content reveal">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/ecommerce/400/250.jpg" alt="E-Commerce Pro">
+                    <div class="project-info">
+                        <h3>E-Commerce Pro</h3>
+                        <p>Plataforma completa con carrito y pasarela de pago.</p>
+                        <div class="project-tags">
+                            <span>React</span><span>Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/taskflow/400/250.jpg" alt="TaskFlow">
+                    <div class="project-info">
+                        <h3>TaskFlow</h3>
+                        <p>App de gestión de tareas colaborativa en tiempo real.</p>
+                        <div class="project-tags">
+                            <span>Vue.js</span><span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/seed/portfolio/400/250.jpg" alt="Portfolio Dinámico">
+                    <div class="project-info">
+                        <h3>Portfolio Dinámico</h3>
+                        <p>Portfolio con animaciones y optimización SEO.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span><span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section-content reveal">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-info">
+                <a href="mailto:contacto@ejemplo.com" class="contact-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/JavierMB91" target="_blank" class="contact-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jmorilla/" target="_blank" class="contact-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Javier Morilla Barrena - Desarrollador Web Full Stack. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Javier Morilla Barrena</p>
     </footer>
+
+    <script src="js/script.js" defer></script>
 </body>
 </html>

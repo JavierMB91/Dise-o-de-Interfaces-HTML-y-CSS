@@ -1,17 +1,14 @@
+/* --- Variables y Estilos Base (Paleta Oscura y Profesional) --- */
 :root {
-    --color-primary: #1a1f2e;
-    --color-secondary: #3a4750;
-    --color-accent: #4a5568;
-    --color-light: #e2e8f0;
-    --color-dark: #0f1419;
-    --shadow: 0 4px 12px rgba(0,0,0,0.15);
-    --shadow2: 0 10px 25px rgba(0,0,0,0.25);
-    --gradiente: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    --font-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-secondary: 'Roboto Mono', monospace;
+    --primary-color: #0d1117; /* Un negro muy oscuro, tipo GitHub */
+    --secondary-color: #161b22; /* Gris oscuro para tarjetas y fondo */
+    --accent-color: #58a6ff; /* Azul brillante pero profesional */
+    --text-color: #c9d1d9; /* Gris claro para texto, fácil de leer */
+    --text-color-muted: #8b949e; /* Gris más apagado para texto secundario */
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+    --transition: all 0.3s ease;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 * {
     margin: 0;
@@ -24,548 +21,365 @@ html {
 }
 
 body {
-    font-family: var(--font-primary);
-    color: #e2e8f0;
+    font-family: var(--font-main);
+    background-color: var(--primary-color);
+    color: var(--text-color);
     line-height: 1.6;
-    background-color: #0f1419;
 }
 
+/* --- Header y Navegación --- */
 header {
-    background: rgba(15, 20, 25, 0.95);
-    color: white;
     position: fixed;
     width: 100%;
     top: 0;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(12px);
     z-index: 1000;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #30363d;
 }
 
 nav {
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
     align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
 }
 
 .logo {
+    font-family: var(--font-mono);
     font-size: 1.5rem;
-    font-weight: 600;
-    font-family: var(--font-secondary);
-    letter-spacing: 1px;
-    color: var(--color-light);
+    color: var(--accent-color);
 }
 
-nav ul {
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 2rem;
 }
 
-nav a {
-    color: var(--color-light);
+.nav-link {
+    color: var(--text-color);
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    position: relative;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-secondary);
-    transition: width 0.3s ease;
+.nav-link:hover {
+    color: var(--accent-color);
 }
 
-nav a:hover::after {
-    width: 100%;
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .logo {
-        font-size: 1.2rem;
-    }
-    nav {
-        flex-direction: column;
-        justify-content: center;
-        padding: 1rem;
-    }
-    nav ul{
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-        margin-top: 1rem;
-    }   
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: var(--transition);
 }
 
-/*********  Seccion Hero ************/
+/* --- Sección Hero --- */
 .hero {
-    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #2d3748 100%);
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
-    margin-top: 80px;
     min-height: 100vh;
-    position: relative;
-    overflow: hidden; /* Añadido para asegurar que los pseudo-elementos no se desborden */
-}
-
-/* Añadimos un pseudo-elemento para crear un efecto de fondo más dinámico */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(58, 71, 80, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(26, 31, 46, 0.4) 0%, transparent 50%);
-    z-index: 0;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    /* Aseguramos que no haya fondo ni borde */
-    background: transparent;
-    border: none;
-    padding: 2rem;
-    /* Añadimos animación de entrada */
-    animation: fadeInUp 1s ease-out;
-}
-
-/* Animación para que el texto aparezca con un efecto suave */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    padding: 0 2rem;
+    margin-top: 70px; /* Altura del header */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.5px;
-    color: #f7fafc;
-    /* Aseguramos que no haya fondo ni sombra de texto */
-    background: transparent;
-    text-shadow: none;
+    margin-bottom: 1rem;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    font-weight: 300;
-    opacity: 0.9;
-    color: #cbd5e0;
-    /* Aseguramos que no haya fondo ni sombra de texto */
-    background: transparent;
-    text-shadow: none;
+    opacity: 0.8;
 }
 
-.boton {
-    display: inline-block;
-    background: var(--color-secondary);
-    padding: 1rem 2rem;
-    color: var(--color-light);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* --- Estilos Generales de Secciones --- */
+.section-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    /* Añadido para que el scroll no quede oculto por el header fijo */
+    scroll-margin-top: 80px;
 }
 
-.boton:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow2);
-    background-color: var(--color-accent);
-}
-
-@media (max-width: 768px) {
-    .hero {
-        margin-top: 0;
-    }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-}
-/********* FIN Hero ************/
-/*********  Secciones ************/
-
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 6rem 2rem;
-}
-
-h2 {
-    font-size: 2.5rem;
+.section-title {
     text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 3rem;
-    color: var(--color-light);
-    font-weight: 600;
     position: relative;
-    padding-bottom: 1rem;
 }
 
-h2::after {
+.section-title::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 3px;
-    background-color: var(--color-secondary);
+    height: 4px;
+    background-color: var(--accent-color);
 }
 
-.sobre-mi {
+/* --- Sección Sobre Mí --- */
+.about-container {
     display: flex;
     align-items: center;
-    gap: 4%;
+    gap: 3rem;
 }
 
-.sobre-mi-texto {
-    width: 50%;
-    line-height: 1.8;
+.about-text {
+    flex: 1;
 }
 
-.sobre-mi-texto p {
+.about-text p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    color: #cbd5e0;
+    opacity: 0.9;
 }
 
-.sobre-mi-texto h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-light);
-    font-weight: 600;
-}
-
-.sobre-mi-texto ul {
-    margin-bottom: 2rem;
-    list-style: none;
-    padding-left: 0;
-}
-
-.sobre-mi-texto ul li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 0.8rem;
-    color: #cbd5e0;
-}
-
-.sobre-mi-texto ul li::before {
-    content: '▶';
-    position: absolute;
-    left: 0;
-    color: var(--color-secondary);
-}
-
-.sobre-mi-imagen {
-    width: 50%;
+.about-image {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
-    font-size: 4rem;
-    border-radius: 8px;
-    height: 400px;
-    box-shadow: var(--shadow2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 300px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 10px;
 }
 
-@media (max-width: 768px) {
-    .sobre-mi {
-        flex-direction: column;
-    }
-    .sobre-mi-texto {
-        width: 95%;
-        margin-bottom: 2rem;
-    }
-    .sobre-mi-imagen {
-        width: 95%;
-    }
-}
-
-.skills, .contacto {
-    background-color: #1a1f2e;
-    border-radius: 8px;
-    margin: 4rem auto;
-    padding: 4rem 2rem;
-    box-shadow: var(--shadow);
-}
-
-/* --- INICIO DE LOS CAMBIOS --- */
-
-/* 
-  Regla general para .skills-container.
-  Ahora controla principalmente la sección de Proyectos.
-*/
-.skills-container {
-    display: grid;
-    /* Se ajusta para que los proyectos se vean bien en tablets y escritorio */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.tech-icons {
+    display: flex;
     gap: 2rem;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* 
-  Regla ESPECÍFICA para el contenedor de HABILIDADES.
-  Esto anula la regla general solo para la sección #habilidades.
-*/
-#habilidades .skills-container {
-    /* Por defecto (en tablets), se mostrarán en 2 columnas */
-    grid-template-columns: repeat(2, 1fr);
+/* --- Sección Habilidades (Alineación Mejorada) --- */
+.skills-grid {
+    display: flex; /* Usamos flexbox para controlar la altura */
+    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente línea */
+    justify-content: center; /* Centra las tarjetas */
+    gap: 1.5rem;
 }
 
-/* 
-  Para pantallas pequeñas (móviles), las habilidades estarán en 1 columna.
-*/
-@media (max-width: 768px) {
-    /* ... otras reglas para móvil ... */
-
-    /* Forzar 1 columna para las habilidades en móvil */
-    #habilidades .skills-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* 
-  Para pantallas grandes (escritorio), las habilidades estarán en 4 columnas.
-  ¡Cumpliendo tu solicitud!
-*/
-@media (min-width: 992px) {
-    /* Forzar 4 columnas para las habilidades en escritorio */
-    #habilidades .skills-container {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* --- FIN DE LOS CAMBIOS --- */
-
-
-/* El resto de los estilos para las tarjetas de habilidades permanecen igual */
-.skills-card {
-    background: #2d3748;
+.skill-card {
+    background: var(--secondary-color);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    border-top: 3px solid var(--accent-color);
+    /* Flexbox para alinear el contenido DENTRO de la tarjeta */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.3s ease;
-    border-top: 4px solid var(--color-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    justify-content: space-between; /* Distribuye el espacio para alinear elementos */
+    flex: 1; /* Hace que las tarjetas crezcan para ocupar el espacio */
+    min-width: 220px; /* Ancho mínimo para que no se apelmacen demasiado */
+    max-width: 280px; /* Ancho máximo para mantener la proporción */
 }
 
-.skills-card:hover {
+.skill-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow2);
-    border-top-color: var(--color-accent);
 }
 
-.skills-card h3 {
-    color: var(--color-light);
+.skill-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
 }
 
-.skills-card p {
-    margin-bottom: 1.5rem;
-    color: #a0aec0;
+.skill-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Permite que el párrafo crezca si es necesario */
 }
 
-.skills-bar {
+.skill-bar {
     width: 100%;
     height: 8px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
-    margin-top: 0.5rem;
     overflow: hidden;
 }
 
-.skills-progress {
+.skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #4a5568 0%, #718096 100%);
+    background-color: var(--accent-color);
     border-radius: 4px;
-    position: relative;
+    width: 0;
+    transition: width 1s ease-in-out;
 }
 
-.skills-progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    animation: shimmer 2s infinite;
+.skill-percentage {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+/* --- Sección Proyectos --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
-
-.noventa { width: 90%; }
-.ochenta { width: 80%; }
-.sesenta { width: 60%; }
-.noventaycinco { width: 95%; }
 
 .project-card {
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background: #2d3748;
+    background: var(--secondary-color);
     border-radius: 8px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    transition: var(--transition);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.project-image {
+.project-card img {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+    object-fit: cover;
 }
 
-.project-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-image::after {
-    opacity: 1;
-}
-
-.project-content {
+.project-info {
     padding: 1.5rem;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto;
 }
 
-.project-content h3 {
-    color: var(--color-light);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
+.project-info h3 {
+    margin-bottom: 0.5rem;
 }
 
-.project-content p {
-    margin-bottom: 1.5rem;
-    color: #a0aec0;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.project-info p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
 }
 
 .project-tags span {
-    background-color: rgba(58, 71, 80, 0.5);
-    padding: 0.4rem 0.8rem;
+    background-color: rgba(88, 166, 255, 0.15);
+    color: var(--accent-color);
+    padding: 0.3rem 0.6rem;
     border-radius: 4px;
-    color: var(--color-light);
-    font-size: 0.85rem;
-    font-weight: 500;
-    font-family: var(--font-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
 }
 
-/* contacto */
-
-.contacto {
-    text-align: center;
-}
-
-.contacto p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #cbd5e0;
-}
-
-.contactos {
-    margin-top: 2rem;
+/* --- Sección Contacto --- */
+.contact-info {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.contactos a {
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    color: var(--color-light);
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 3rem;
+    margin-top: 2rem;
 }
 
-.contactos a:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow2);
-    background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
+.contact-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
 }
 
-/* Footer */
+.contact-icon:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
 
+/* --- Footer --- */
 footer {
-    background: #0f1419;
-    color: #a0aec0;
     text-align: center;
     padding: 2rem;
+    border-top: 1px solid #30363d;
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-color-muted);
+}
+
+/* --- Animación de aparición (Reveal) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skill-card {
+        max-width: 100%;
+    }
+
+    .contact-info {
+        gap: 2rem;
+    }
 }
