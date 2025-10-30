@@ -1,13 +1,19 @@
 /* --- Variables y Estilos Base (Paleta Oscura y Profesional) --- */
 :root {
-    --primary-color: #0d1117; /* Un negro muy oscuro, tipo GitHub */
-    --secondary-color: #161b22; /* Gris oscuro para tarjetas y fondo */
-    --accent-color: #58a6ff; /* Azul brillante pero profesional */
-    --text-color: #c9d1d9; /* Gris claro para texto, fácil de leer */
-    --text-color-muted: #8b949e; /* Gris más apagado para texto secundario */
+    --primary-color: #0d1117;
+    --secondary-color: #161b22;
+    --accent-color: #58a6ff;
+    --text-color: #c9d1d9;
+    --text-color-muted: #8b949e;
     --font-main: 'Inter', sans-serif;
     --font-mono: 'Fira Code', monospace;
     --transition: all 0.3s ease;
+    /* Colores específicos para el tema de VS Code */
+    --vscode-bg: #1e1e1e;
+    --vscode-sidebar: #252526;
+    --vscode-active-tab: #1e1e1e;
+    --vscode-inactive-tab: #2d2d30;
+    --vscode-highlight: #264f78;
 }
 
 * {
@@ -84,36 +90,149 @@ nav {
     transition: var(--transition);
 }
 
-/* --- Sección Hero --- */
+/* --- Sección Hero (Actualizado para VS Code) --- */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     min-height: 100vh;
     padding: 0 2rem;
-    margin-top: 70px; /* Altura del header */
+    margin-top: 70px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
-.hero-content h1 {
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1; /* Ocupa 1 parte del espacio */
+    max-width: 40%; /* Limita su ancho para dar más espacio al editor */
+    text-align: left;
+}
+
+.hero-visual {
+    flex: 2; /* Ocupa 2 partes del espacio, el doble que el texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-.hero-content p {
+.hero-text p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     opacity: 0.8;
 }
 
-/* --- Estilos Generales de Secciones --- */
+/* --- Estilos del Editor VS Code --- */
+.vscode-editor {
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    background: var(--vscode-bg);
+    border-radius: 8px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    overflow: hidden;
+    font-family: var(--font-mono);
+}
+
+.vscode-sidebar {
+    width: 50px;
+    background: var(--vscode-sidebar);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    gap: 1.5rem;
+}
+
+.sidebar-icon {
+    color: var(--text-color-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+.sidebar-icon:hover, .sidebar-icon.active {
+    background: var(--vscode-highlight);
+    color: var(--text-color);
+}
+
+.vscode-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.vscode-tabs {
+    background: var(--vscode-active-tab);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.tab {
+    background: var(--vscode-inactive-tab);
+    padding: 0.5rem 1rem;
+    border-radius: 4px 4px 0 0;
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+}
+.tab.active {
+    background: var(--vscode-bg);
+    color: var(--text-color);
+}
+
+.vscode-code {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: var(--vscode-bg);
+}
+.vscode-code pre {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+/* Colores de sintaxis tipo VS Code */
+.code-comment { color: #6a9955; }
+.code-keyword { color: #569cd6; }
+.code-function { color: #dcdcaa; }
+.code-variable { color: #9cdcfe; }
+.code-class { color: #4ec9b0; }
+.code-property { color: #9cdcfe; }
+.code-string { color: #ce9178; }
+
+.vscode-statusbar {
+    background: #007acc;
+    color: var(--text-color);
+    font-size: 0.75rem;
+    padding: 0.3rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vscode-statusbar span { margin-right: 1rem; }
+
+
+/* --- El resto de los estilos se mantienen igual --- */
 .section-content {
     max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 2rem;
-    /* Añadido para que el scroll no quede oculto por el header fijo */
     scroll-margin-top: 80px;
 }
 
@@ -136,7 +255,6 @@ nav {
     background-color: var(--accent-color);
 }
 
-/* --- Sección Sobre Mí --- */
 .about-container {
     display: flex;
     align-items: center;
@@ -170,11 +288,10 @@ nav {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* --- Sección Habilidades (Alineación Mejorada) --- */
 .skills-grid {
-    display: flex; /* Usamos flexbox para controlar la altura */
-    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente línea */
-    justify-content: center; /* Centra las tarjetas */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
 }
 
@@ -185,13 +302,12 @@ nav {
     text-align: center;
     transition: var(--transition);
     border-top: 3px solid var(--accent-color);
-    /* Flexbox para alinear el contenido DENTRO de la tarjeta */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribuye el espacio para alinear elementos */
-    flex: 1; /* Hace que las tarjetas crezcan para ocupar el espacio */
-    min-width: 220px; /* Ancho mínimo para que no se apelmacen demasiado */
-    max-width: 280px; /* Ancho máximo para mantener la proporción */
+    justify-content: space-between;
+    flex: 1;
+    min-width: 220px;
+    max-width: 280px;
 }
 
 .skill-card:hover {
@@ -213,7 +329,7 @@ nav {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 1rem;
-    flex-grow: 1; /* Permite que el párrafo crezca si es necesario */
+    flex-grow: 1;
 }
 
 .skill-bar {
@@ -240,7 +356,6 @@ nav {
     color: var(--accent-color);
 }
 
-/* --- Sección Proyectos --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -287,7 +402,6 @@ nav {
     margin-right: 0.5rem;
 }
 
-/* --- Sección Contacto --- */
 .contact-info {
     display: flex;
     justify-content: center;
@@ -317,7 +431,6 @@ nav {
     transform: translateY(-5px);
 }
 
-/* --- Footer --- */
 footer {
     text-align: center;
     padding: 2rem;
@@ -326,7 +439,6 @@ footer {
     color: var(--text-color-muted);
 }
 
-/* --- Animación de aparición (Reveal) --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -338,12 +450,14 @@ footer {
     transform: translateY(0);
 }
 
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+}
+
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
+    .menu-toggle { display: flex; }
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -356,39 +470,25 @@ footer {
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
     }
+    .nav-menu.active { left: 0; }
 
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .about-container {
+    .hero-content {
         flex-direction: column;
         text-align: center;
     }
-
-    .skills-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .skill-card {
+    .hero-text {
+        text-align: center;
         max-width: 100%;
     }
-
-    .contact-info {
-        gap: 2rem;
+    .hero-visual {
+        width: 100%;
     }
-}
+    .vscode-editor {
+        height: 350px;
+    }
 
-/* --- Añadir esto al final de tu archivo CSS --- */
-
-/* Contenedor para el efecto 3D */
-.tilt-card {
-    /* Esta propiedad es clave para el efecto de perspectiva */
-    transform-style: preserve-3d;
-    transition: transform 0.2s ease-out;
+    .about-container { flex-direction: column; text-align: center; }
+    .skills-grid { flex-direction: column; align-items: center; }
+    .skill-card { max-width: 100%; }
+    .contact-info { gap: 2rem; }
 }

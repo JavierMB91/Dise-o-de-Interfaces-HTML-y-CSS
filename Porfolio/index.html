@@ -34,11 +34,50 @@
     <main>
         <section id="inicio" class="hero">
             <div class="hero-content">
-                <h1><span class="typing-text"></span></h1>
-                <p>Desarrollador Web Full Stack creando experiencias digitales modernas.</p>
+                <div class="hero-text">
+                    <h1><span class="typing-text"></span></h1>
+                    <p>Desarrollador Web Full Stack creando experiencias digitales modernas.</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="vscode-editor">
+                        <!-- Barra Lateral -->
+                        <div class="vscode-sidebar">
+                            <div class="sidebar-icon active" title="Explorer"><i class="fas fa-folder"></i></div>
+                            <div class="sidebar-icon" title="Search"><i class="fas fa-search"></i></div>
+                            <div class="sidebar-icon" title="Source Control"><i class="fas fa-code-branch"></i></div>
+                            <div class="sidebar-icon" title="Run and Debug"><i class="fas fa-bug"></i></div>
+                            <div class="sidebar-icon" title="Extensions"><i class="fas fa-puzzle-piece"></i></div>
+                        </div>
+                        <!-- Editor Principal -->
+                        <div class="vscode-main">
+                            <div class="vscode-tabs">
+                                <div class="tab active">portfolio.js</div>
+                            </div>
+                            <div class="vscode-code">
+                                <pre><code><span class="code-comment">// Mi función principal para construir la web</span>
+<span class="code-keyword">function</span> <span class="code-function">buildPortfolio</span>(<span class="code-variable">skills</span>, <span class="code-variable">passion</span>) {
+  <span class="code-keyword">const</span> <span class="code-variable">portfolio</span> = <span class="code-keyword">new</span> <span class="code-class">Project</span>({
+    <span class="code-property">author</span>: <span class="code-string">'Javier Morilla'</span>,
+    <span class="code-property">tech</span>: <span class="code-variable">skills</span>,
+    <span class="code-property">love</span>: <span class="code-variable">passion</span>
+  });
+
+  <span class="code-keyword">return</span> <span class="code-variable">portfolio</span>.<span class="code-function">deploy</span>();
+}</code></pre>
+                            </div>
+                            <div class="vscode-statusbar">
+                                <span><i class="fas fa-code-branch"></i> main</span>
+                                <span>JavaScript</span>
+                                <span>UTF-8</span>
+                                <span>Prettier</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- El resto de las secciones se mantienen igual -->
         <section id="sobre-mi" class="section-content reveal">
             <h2 class="section-title">Sobre mí</h2>
             <div class="about-container">
@@ -51,7 +90,7 @@
                         <i class="fab fa-html5"></i>
                         <i class="fab fa-css3-alt"></i>
                         <i class="fab fa-js-square"></i>
-                        <i class="fab fa-php"></i>
+                        <i class="fab fa-react"></i>
                     </div>
                 </div>
             </div>
@@ -60,7 +99,7 @@
         <section id="habilidades" class="section-content reveal">
             <h2 class="section-title">Habilidades Técnicas</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card tilt-card">
                     <i class="fab fa-html5 skill-icon"></i>
                     <h3>HTML & CSS</h3>
                     <p>Interfaces limpias, modernas y responsivas.</p>
@@ -69,7 +108,7 @@
                     </div>
                     <span class="skill-percentage">90%</span>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card tilt-card">
                     <i class="fab fa-js-square skill-icon"></i>
                     <h3>JavaScript</h3>
                     <p>Lógica de interacción y asincronía moderna.</p>
@@ -78,7 +117,7 @@
                     </div>
                     <span class="skill-percentage">80%</span>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card tilt-card">
                     <i class="fab fa-php skill-icon"></i>
                     <h3>PHP</h3>
                     <p>Desarrollo backend y conexión con bases de datos.</p>
@@ -87,7 +126,7 @@
                     </div>
                     <span class="skill-percentage">60%</span>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card tilt-card">
                     <i class="fas fa-database skill-icon"></i>
                     <h3>MySQL</h3>
                     <p>Consultas optimizadas y diseño relacional.</p>
@@ -102,7 +141,7 @@
         <section id="proyectos" class="section-content reveal">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card tilt-card">
                     <img src="https://picsum.photos/seed/ecommerce/400/250.jpg" alt="E-Commerce Pro">
                     <div class="project-info">
                         <h3>E-Commerce Pro</h3>
@@ -112,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card tilt-card">
                     <img src="https://picsum.photos/seed/taskflow/400/250.jpg" alt="TaskFlow">
                     <div class="project-info">
                         <h3>TaskFlow</h3>
@@ -122,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card tilt-card">
                     <img src="https://picsum.photos/seed/portfolio/400/250.jpg" alt="Portfolio Dinámico">
                     <div class="project-info">
                         <h3>Portfolio Dinámico</h3>
@@ -137,7 +176,7 @@
 
         <section id="contacto" class="section-content reveal">
             <h2 class="section-title">Contacto</h2>
-
+            <p>¡Conectemos a través de estas plataformas!</p>
             <div class="contact-info">
                 <a href="mailto:contacto@ejemplo.com" class="contact-icon" title="Email">
                     <i class="fas fa-envelope"></i>
