@@ -161,12 +161,14 @@ nav {
 .sidebar-icon {
     color: var(--text-color-muted);
     font-size: 1.2rem;
-    cursor: pointer;
+    /* Eliminamos cursor: pointer para que no cambie el cursor */
     padding: 10px;
     border-radius: 5px;
     transition: var(--transition);
 }
-.sidebar-icon:hover, .sidebar-icon.active {
+
+/* Mantenemos solo el estado active, eliminamos el hover */
+.sidebar-icon.active {
     background: var(--vscode-highlight);
     color: var(--text-color);
 }
