@@ -16,6 +16,21 @@
     --vscode-highlight: #264f78;
 }
 
+/* Variables para modo claro */
+[data-theme="light"] {
+    --primary-color: #f6f8fa;
+    --secondary-color: #ffffff;
+    --accent-color: #0969da;
+    --text-color: #24292f;
+    --text-color-muted: #656d76;
+    /* Colores específicos para el tema de VS Code en modo claro */
+    --vscode-bg: #ffffff;
+    --vscode-sidebar: #f3f3f3;
+    --vscode-active-tab: #ffffff;
+    --vscode-inactive-tab: #e1e4e8;
+    --vscode-highlight: #ddf4ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -90,7 +105,32 @@ nav {
     transition: var(--transition);
 }
 
-/* --- Sección Hero (Actualizado para VS Code) --- */
+/* --- Estilos del Botón de Cambio de Tema --- */
+.theme-toggle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    margin-left: auto; /* <-- CAMBIO CLAVE: Esto empuja el botón a la derecha */
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#theme-icon {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+/* --- Sección Hero --- */
 .hero {
     display: flex;
     align-items: center;
@@ -111,13 +151,13 @@ nav {
 }
 
 .hero-text {
-    flex: 1; /* Ocupa 1 parte del espacio */
-    max-width: 40%; /* Limita su ancho para dar más espacio al editor */
+    flex: 1;
+    max-width: 40%;
     text-align: left;
 }
 
 .hero-visual {
-    flex: 2; /* Ocupa 2 partes del espacio, el doble que el texto */
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,13 +201,11 @@ nav {
 .sidebar-icon {
     color: var(--text-color-muted);
     font-size: 1.2rem;
-    /* Eliminamos cursor: pointer para que no cambie el cursor */
     padding: 10px;
     border-radius: 5px;
     transition: var(--transition);
 }
 
-/* Mantenemos solo el estado active, eliminamos el hover */
 .sidebar-icon.active {
     background: var(--vscode-highlight);
     color: var(--text-color);
@@ -210,23 +248,23 @@ nav {
 
 .code-line {
     display: flex;
-    align-items: flex-start; /* Alinea los números con la parte superior de la línea de código */
+    align-items: flex-start;
 }
 
 .line-number {
-    width: 30px; /* Ancho fijo para alinear los números */
+    width: 30px;
     text-align: right;
     padding-right: 10px;
     color: var(--text-color-muted);
-    user-select: none; /* Evita que se puedan seleccionar los números */
-    flex-shrink: 0; /* Evita que el número se encoja */
+    user-select: none;
+    flex-shrink: 0;
 }
 
 .code-content {
-    flex-grow: 1; /* Ocupa el resto del espacio disponible */
-    white-space: pre; /* Mantiene los espacios y sangrados */
+    flex-grow: 1;
+    white-space: pre;
 }
-/* Colores de sintaxis tipo VS Code */
+/* Colores de sintaxis tipo VS Code (Modo Oscuro) */
 .code-comment { color: #6a9955; }
 .code-keyword { color: #569cd6; }
 .code-function { color: #dcdcaa; }
@@ -246,8 +284,7 @@ nav {
 }
 .vscode-statusbar span { margin-right: 1rem; }
 
-
-/* --- El resto de los estilos se mantienen igual --- */
+/* --- Resto de Secciones --- */
 .section-content {
     max-width: 1100px;
     margin: 0 auto;
@@ -458,6 +495,7 @@ footer {
     color: var(--text-color-muted);
 }
 
+/* --- Clases de Utilidad --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -474,10 +512,51 @@ footer {
     transition: transform 0.2s ease-out;
 }
 
+/* --- Ajustes para Modo Claro --- */
+[data-theme="light"] header {
+    background: rgba(246, 248, 250, 0.8);
+    border-bottom: 1px solid #d0d7de;
+}
+
+[data-theme="light"] .theme-toggle {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .skill-card, 
+[data-theme="light"] .project-card,
+[data-theme="light"] .about-image,
+[data-theme="light"] .contact-icon {
+    background: var(--secondary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .vscode-editor {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .vscode-statusbar {
+    background: #0969da;
+}
+
+[data-theme="light"] footer {
+    border-top: 1px solid #d0d7de;
+}
+
+/* Colores de sintaxis para Modo Claro */
+[data-theme="light"] .code-comment { color: #6a737d; }
+[data-theme="light"] .code-keyword { color: #d73a49; }
+[data-theme="light"] .code-function { color: #6f42c1; }
+[data-theme="light"] .code-variable { color: #24292e; }
+[data-theme="light"] .code-class { color: #22863a; }
+[data-theme="light"] .code-property { color: #6f42c1; }
+[data-theme="light"] .code-string { color: #032f62; }
+
 /* --- Media Queries para Responsividad --- */
-/* --- Media Queries para Responsividad (Solución Final y Completa) --- */
 @media (max-width: 768px) {
-    /* --- Navegación Móvil (sin cambios) --- */
     .menu-toggle { display: flex; }
     .nav-menu {
         position: fixed;
@@ -493,7 +572,6 @@ footer {
     }
     .nav-menu.active { left: 0; }
 
-    /* --- Ajustes de la Sección Hero para móvil --- */
     .hero {
         padding: 0 1rem;
     }
@@ -510,24 +588,17 @@ footer {
     }
     .hero-visual {
         width: 100%;
-        display: flex;
-        justify-content: center;
     }
 
-    /* --- ADAPTACIÓN DEFINITIVA DEL EDITOR VS CODE --- */
     .vscode-editor {
         width: 95vw;
         max-width: 500px;
-        height: 400px; /* <-- CAMBIO CLAVE: Aumentamos la altura para que quepa todo el código */
-        overflow: hidden; /* Mantiene la seguridad contra desbordamientos */
+        height: 400px;
+        overflow: hidden;
     }
 
-    /* --- AJUSTES FINOS EN LA BARRA LATERAL --- */
     .vscode-sidebar {
         width: 45px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         padding-top: 0.5rem;
     }
 
@@ -539,7 +610,7 @@ footer {
     }
 
     .vscode-code {
-        overflow-y: hidden; /* <-- CAMBIO CLAVE: Forzamos a que no aparezca scroll vertical */
+        overflow-y: hidden;
         font-size: 0.75rem;
     }
 
@@ -548,7 +619,6 @@ footer {
         word-wrap: break-word;
     }
 
-    /* --- AJUSTES FINOS EN LA BARRA DE ESTADO --- */
     .vscode-statusbar {
         font-size: 0.6rem;
         padding: 0.25rem 0.5rem;
@@ -560,9 +630,18 @@ footer {
         margin-right: 0.5rem;
         white-space: nowrap;
     }
-    /* --- FIN DE LA ADAPTACIÓN DEL EDITOR --- */
+    
+    /* Ajustes para el botón de tema en móviles */
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-left: 1rem; /* Añadimos un pequeño margen para que no pegue con el menú */
+    }
+    
+    #theme-icon {
+        font-size: 1rem;
+    }
 
-    /* --- Resto de secciones (sin cambios) --- */
     .about-container { flex-direction: column; text-align: center; }
     .skills-grid { flex-direction: column; align-items: center; }
     .skill-card { max-width: 100%; }

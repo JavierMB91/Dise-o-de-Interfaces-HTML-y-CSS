@@ -1,5 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. CAMBIO DE TEMA (NUEVO) ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+    
+    // Comprobar si hay un tema guardado en localStorage
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+    
+    // Función para actualizar el icono del tema
+    function updateThemeIcon(theme) {
+        if (theme === 'light') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+    
+    // Event listener para el botón de cambio de tema
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
     // --- 1. MENÚ MÓVIL ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -14,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. EFECTO DE ESCRITURA (ACTUALIZADO) ---
     const typingText = document.querySelector('.typing-text');
-    const phrases = ['Hola, soy Javier', 'Desarrollador Web Full Stack.']; // <-- CAMBIO AQUÍ
+    const phrases = ['Hola, soy Javier', 'Desarrollador Web Full Stack.'];
     let i = 0, j = 0;
     let currentPhrase = [];
     let isDeleting = false;
